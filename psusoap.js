@@ -2,6 +2,7 @@ require("tls").DEFAULT_MIN_VERSION = "TLSv1"; // since TLSv1.3 default disable v
 const express = require("express");
 const soap = require("soap");
 const cors = require("cors");
+const port = process.env.PORT || 80;
 const bodyParser = require("body-parser");
 const url =
   "https://passport.psu.ac.th/authentication/authentication.asmx?wsdl";
@@ -51,4 +52,4 @@ router
     });
   });
 app.use('/', router);
-app.listen(3000, () => console.log("Server is ready! : PORT 3000"));
+app.listen(port, () => console.log("Server is ready!"));
